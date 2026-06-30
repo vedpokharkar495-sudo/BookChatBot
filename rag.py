@@ -16,7 +16,7 @@ def get_llm():
         print("Loading LLM model... (this might take a minute)")
         llm_pipeline = pipeline(
             "text2text-generation",
-            model="google/flan-t5-base",
+            model="deepreinforce-ai/Ornith-1.0-35B",
             max_length=500,
             temperature=0.1
         )
