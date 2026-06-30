@@ -1,0 +1,14 @@
+langchain
+langchain-community
+langchain-huggingface
+pypdf
+faiss-cpu
+sentence-transformers
+fastapi
+uvicorn
+python-multipart
+streamlit
+python-dotenv
+transformers
+torch
+
