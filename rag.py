@@ -139,7 +139,7 @@ def process_book(file_path):
     book_name = file_path.split("/")[-1].replace(".pdf", "")
     vs.create_vector_store(chunks, book_name)
     
-    print(f"✅ Book processed successfully: {book_name}")
+    print(f"Book processed successfully: {book_name}")
     return book_name
 
 
