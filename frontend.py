@@ -15,12 +15,12 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("📚 Book Chatbot")
+st.title("Book Chatbot")
 st.markdown("Upload books and ask questions about them!")
 
 # Sidebar for uploading
 with st.sidebar:
-    st.header("📤 Upload Book")
+    st.header("Upload Book")
     
     uploaded_file = st.file_uploader("Choose a PDF", type="pdf")
     
@@ -44,7 +44,7 @@ with st.sidebar:
     st.divider()
     
     # Show available books
-    st.header("📚 Your Books")
+    st.header("Your Books")
     
     try:
         response = requests.get(f"{API_URL}/books")
@@ -58,7 +58,7 @@ with st.sidebar:
                 for book in books:
                     col1, col2 = st.columns([3, 1])
                     with col1:
-                        st.write(f"📖 {book['name']}")
+                        st.write(f"{book['name']}")
                         st.caption(f"{book['size_mb']} MB")
                     with col2:
                         if st.button("🗑️", key=book['name']):
@@ -73,7 +73,7 @@ with st.sidebar:
         st.warning("Backend not running")
 
 # Main area
-tab1, tab2 = st.tabs(["💬 Ask Questions", "ℹ️ How to Use"])
+tab1, tab2 = st.tabs(["Ask Questions", "How to Use"])
 
 with tab1:
     st.header("Ask About Your Books")
@@ -118,7 +118,7 @@ with tab1:
         question = st.text_area("Your question:", placeholder=placeholder, height=100)
         
         # Ask button
-        if st.button("🔍 Ask", type="primary"):
+        if st.button("Ask", type="primary"):
             if not question:
                 st.warning("Please enter a question")
             else:
@@ -143,14 +143,14 @@ with tab1:
                             # Show sources
                             sources = data.get("sources", [])
                             if sources:
-                                with st.expander(f"📖 Sources ({len(sources)})"):
+                                with st.expander(f"Sources ({len(sources)})"):
                                     for source in sources:
                                         st.write(f"- {source}")
                             
                             # Show chunks
                             chunks = data.get("chunks", [])
                             if chunks:
-                                with st.expander("🔍 Retrieved Passages"):
+                                with st.expander("Retrieved Passages"):
                                     for i, chunk in enumerate(chunks, 1):
                                         st.info(f"**Passage {i}:**\n\n{chunk}")
                         else:
@@ -164,11 +164,11 @@ with tab2:
     st.header("How to Use")
     
     st.markdown("""
-    ### 📤 Step 1: Upload a Book
+    ### Step 1: Upload a Book
     - Use the sidebar to upload PDF files
     - The system will process the book (this takes 1-2 minutes)
     
-    ### 💬 Step 2: Ask Questions
+    ### Step 2: Ask Questions
     - Select a book from the dropdown
     - Type your question
     - Choose question type:
@@ -177,13 +177,13 @@ with tab2:
         - **Summary**: Get chapter summaries
         - **Interview**: Generate interview questions
     
-    ### 🔍 How It Works
+    ### How It Works
     1. Book is split into small chunks
     2. Each chunk is converted to embeddings
     3. When you ask, similar chunks are found
     4. AI generates answer using those chunks
     
-    ### 💡 Example Questions
+    ### Example Questions
     - "Explain machine learning"
     - "Who is the main character?"
     - "Summarize Chapter 5"
