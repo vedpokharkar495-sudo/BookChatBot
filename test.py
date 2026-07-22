@@ -38,7 +38,7 @@ def test():
         else:
             print(f"Error: {r.text}")
     
-    print("\n✅ Test complete!")
+    print("\nTest complete!")
 
 if __name__ == "__main__":
     test()
