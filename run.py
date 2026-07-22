@@ -11,11 +11,11 @@ os.makedirs("uploads", exist_ok=True)
 os.makedirs("vector_db", exist_ok=True)
 
 print("=" * 50)
-print("📚 Starting Book Chatbot")
+print("Starting Book Chatbot")
 print("=" * 50)
 
 # Start backend
-print("\n📡 Starting backend server...")
+print("\nStarting backend server...")
 backend = subprocess.Popen([
     sys.executable, "-m", "uvicorn",
     "backend:app",
@@ -27,17 +27,17 @@ backend = subprocess.Popen([
 time.sleep(3)
 
 # Start frontend
-print("🎨 Starting frontend...")
+print("Starting frontend...")
 frontend = subprocess.Popen([
     sys.executable, "-m", "streamlit",
     "run", "frontend.py",
     "--server.port", "8501"
 ])
 
-print("\n✅ Everything is running!")
-print("📱 Frontend: http://localhost:8501")
-print("🔧 Backend API: http://localhost:8000")
-print("📖 API Docs: http://localhost:8000/docs")
+print("\nEverything is running!")
+print("Frontend: http://localhost:8501")
+print("Backend API: http://localhost:8000")
+print("API Docs: http://localhost:8000/docs")
 print("\nPress Ctrl+C to stop\n")
 
 # Wait for processes
@@ -45,7 +45,7 @@ try:
     backend.wait()
     frontend.wait()
 except KeyboardInterrupt:
-    print("\n🛑 Shutting down...")
+    print("\nShutting down...")
     backend.terminate()
     frontend.terminate()
 
